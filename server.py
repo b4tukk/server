@@ -1,20 +1,12 @@
-def get_crypto_price(coin_id):
-    import requests
+from mcp.server.fastmcp import FastMCP
+from app import get_crypto_price
 
-    url = "https://api.coingecko.com/api/v3/simple/price"
-    params = {
-        "ids": coin_id,
-        "vs_currencies": "usd"
-    }
+mcp = FastMCP("weather-forecast-mcp")
 
-    response = requests.get(url, params=params)
+@mcp.tool()
+async def get_crypto_price(coin_id: str) -> dict:
+    result = get_crypto_price(coin_id)
+    return result
 
-    if response.status_code == 200:
-        data = response.json()
-        if coin_id in data:
-            price = data[coin_id]["usd"]
-            print(f"{coin_id.capitalize()} fiyatı: ${price}")
-        else:
-            print("Kripto para bulunamadı.")
-    else:
-        print("API hatası:", response.status_code)
+if __name__ == "__main__":
+    mcp.run(transport="stdio")
