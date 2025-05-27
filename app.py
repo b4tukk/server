@@ -13,8 +13,8 @@ def get_crypto_price(coin_id):
         data = response.json()
         if coin_id in data:
             price = data[coin_id]["usd"]
-            print(f"{coin_id.capitalize()} fiyatı: ${price}")
+            return {"price": price}
         else:
-            print("Kripto para bulunamadı.")
+            return {"error": "Kripto para bulunamadı."}
     else:
-        print("API hatası:", response.status_code)
+        return {"error": f"API hatası: {response.status_code}"}
