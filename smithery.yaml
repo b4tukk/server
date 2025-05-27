@@ -1,7 +1,10 @@
-name: kripto-takip-araci
-runtime: python
-build:
-  install: pip install -r requirements.txt
-  command: python main.py
-  output: .
-entrypoint: main.py
+id: kripto-takip-araci
+
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    properties: {}
+  commandFunction: |-
+    (config) => ({ command: 'python', args: ['-m', 'server'] })
+  exampleConfig: {}
