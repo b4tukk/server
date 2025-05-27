@@ -1,6 +1,6 @@
-import requests
-
 def get_crypto_price(coin_id):
+    import requests
+
     url = "https://api.coingecko.com/api/v3/simple/price"
     params = {
         "ids": coin_id,
@@ -18,7 +18,3 @@ def get_crypto_price(coin_id):
             print("Kripto para bulunamadı.")
     else:
         print("API hatası:", response.status_code)
-
-# Kullanıcıdan veri al
-coin = input("Takip etmek istedigin kripto para (ornek: bitcoin, ethereum, dogecoin): ").lower()
-get_crypto_price(coin)
