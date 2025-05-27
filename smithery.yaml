@@ -1,0 +1,7 @@
+name: kripto-takip-araci
+runtime: python
+build:
+  install: pip install -r requirements.txt
+  command: python main.py
+  output: .
+entrypoint: main.py

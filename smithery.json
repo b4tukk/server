@@ -1,7 +1,0 @@
-{
-  "output": "dist",
-  "project": {
-    "name": "kripto-takip-araci",
-    "framework": "none"
-  }
-}
