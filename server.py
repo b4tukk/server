@@ -1,7 +1,7 @@
 from mcp.server.fastmcp import FastMCP
 from app import get_crypto_price as fetch_price 
 
-mcp = FastMCP("weather-forecast-mcp")
+mcp = FastMCP("crypto-price-mcp")
 
 @mcp.tool()
 async def get_crypto_price(coin_id: str) -> dict:
